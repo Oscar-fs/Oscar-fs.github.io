@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oscar Villalobos | Portafolio</title>
+  <link rel="icon" href="https://i.imgur.com/rsXlBYm.png" type="image/png">
+  <style>
+/* CSS Profesional Premium para Portafolio Oscar Villalobos */
+
+/* Reset y tipografía base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  color: #222;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  text-align: center;
+  padding: 5rem 2rem 3rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.2rem; /* antes 0.5rem */
+  letter-spacing: 2px;
+}
+
+header p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  margin-bottom: 2rem; /* agrega espacio antes del botón */
+}
+
+header .btn {
+  margin-top: 0; /* elimina margen extra innecesario */
+}
+
+.btn {
+  background: #ff416c;
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background: #ff4b2b;
+  transform: scale(1.05);
+}
+
+/* Navegación */
+nav {
+  background: #1e1e1e;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0.8rem 2rem;
+  position: relative;
+}
+
+.nav-name {
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  justify-self: start;
+}
+
+.nav-name.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-menu-wrapper {
+  grid-column: 2 / 3;
+  justify-self: center;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-menu li a {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  position: relative;
+  text-decoration: none;
+}
+
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #ff416c;
+  transition: width 0.3s;
+}
+
+.nav-menu li a:hover::after {
+  width: 100%;
+}
+
+
+/* Secciones */
+section {
+  margin-bottom: 5rem;
+  scroll-margin-top: 100px;
+  animation: fadeInUp 0.8s ease;
+}
+
+h2 {
+  font-size: 2.2rem;
+  color: #ff416c;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid #ff4b2b;
+  display: inline-block;
+  padding-bottom: 0.4rem;
+}
+
+/* Tarjetas */
+.card, .project-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover, .project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+}
+
+.card ul {
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  list-style-type: disc;
+}
+
+/* Carrusel */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  gap: 1rem;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  scroll-snap-type: x mandatory;
+  padding: 1rem 0;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track a {
+  flex: 0 0 calc(100% / 3 - 1rem);
+  scroll-snap-align: center;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.carousel-track a img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-track a img:hover {
+  transform: scale(1.03);
+}
+
+.carousel-btn {
+  background: #ff416c;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-btn:hover {
+  background: #ff4b2b;
+}
+
+@media (max-width: 768px) {
+  .carousel-track a {
+    flex: 0 0 90%;
+  }
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  animation: fadeInUp 0.3s ease;
+  position: relative;
+}
+
+.modal-content h3 {
+  color: #ff416c;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  font-size: 1.8rem;
+  color: #555;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ff416c;
+}
+
+/* Footer */
+footer {
+  background: #151515;
+  color: #aaa;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+}
+
+footer p {
+  color: #ccc;
+  margin: 0;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* RESPONSIVE DESIGN COMPLETO */
+@media (max-width: 1024px) {
+  header h1 {
+    font-size: 2.8rem;
+  }
+
+  header p {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .nav-menu {
+    gap: 1.5rem;
+  }
+
+  .carousel-track a {
+    flex: 0 0 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .nav-name {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-menu-wrapper {
+    grid-column: auto;
+    justify-self: center;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  header h1 {
+    font-size: 2.4rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+  }
+
+  .carousel-track a {
+    flex: 0 0 95%;
+  }
+
+  .card, .project-card {
+    padding: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 3.5rem 1rem 2rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .modal-content p {
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.85rem;
+  }
+}
+@media (max-width: 768px) {
+  .nav-container {
+    grid-template-columns: 1fr;
+    padding: 0.8rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-name {
+    opacity: 1;
+    transform: translateY(0);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .nav-menu-wrapper {
+    justify-self: center;
+    width: 100%;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .nav-menu li {
+    margin: 0;
+  }
+
+  .nav-menu li a {
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+    display: inline-block;
+  }
+
+  header h1 {
+    font-size: 2.4rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.3rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .card, .project-card {
+    padding: 1.2rem;
+  }
+
+  .carousel-track a {
+    flex: 0 0 90%;
+  }
+}
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  animation: fadeInUp 0.3s ease;
+  position: relative;
+  max-height: 80vh; /* 👈 Limita la altura */
+  overflow-y: auto;  /* 👈 Activa el scroll vertical */
+}
+
+
+  </style>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Gracias por tu mensaje. Te contactaré pronto.');
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <div id="top" class="container">
+      <h1>Oscar Villalobos</h1>
+      <p>Desarrollador Full Stack | Ingeniería en Informática</p>
+      <a href="CV_Oscar_Villalobos.pdf" class="btn" download>Descargar CV</a>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-container">
+        <a href="#top" class="nav-name" id="navName">Oscar Villalobos</a>
+      <div class="nav-menu-wrapper">
+        <ul class="nav-menu">
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
+  <main class="container">
+    <section id="sobre-mi">
+        <h2>Sobre mí</h2>
+        <p>Soy titulado en Ingeniería en Informática por Duoc UC, con una fuerte orientación al desarrollo de soluciones tecnológicas que generen impacto real en las personas y en los procesos de negocio. Me especializo en desarrollo full stack, automatización de procesos y diseño de sistemas web inteligentes. A lo largo de mi formación y experiencia profesional, he participado en proyectos desafiantes que combinan tecnologías como Django, React, SQL Server, Firebase, APIs REST, WordPress y herramientas modernas de infraestructura y seguridad.</p> <p>He trabajado en entornos reales como Samtech S.A., donde desarrollé e implementé microservicios, automatizaciones y mejoras visuales desde cero; en Falabella, donde gestioné datos, stock y experiencia de cliente con herramientas como SQL, CRM y ERP; y también he liderado proyectos personales como ASApeace, una plataforma con inteligencia artificial integrada, videollamadas, cotizadores en tiempo real y soporte empático para usuarios en procesos funerarios. Además, desarrollé una aplicación móvil con React Native durante un curso intensivo en la Universidad Católica, y una página web de arte profesional con WordPress y altos estándares de seguridad.</p> <p>Me motiva estar en constante aprendizaje, trabajar en equipos colaborativos y llevar la tecnología al servicio de soluciones funcionales, humanas y bien diseñadas.</p> </section>
+
+    <section id="experiencia">
+      <h2>Experiencia</h2>
+      <div class="card">
+        <h3>Desarrollador Full Stack - Samtech S.A.</h3>
+        <p><strong>Oct 2024 - Feb 2025</strong></p>
+        <ul>
+          <li>Diseñé e implementé soluciones eficientes con Django, automatizando procesos.</li>
+          <li>Optimización del rendimiento en bases de datos con SQL Server avanzado.</li>
+          <li>Implementación de funcionalidades y diseño en la página web utilizando JavaScript, CSS y Java.</li>
+          <li>Trabajo en equipo con comunicación efectiva para la gestión y resolución de tareas técnicas.</li>
+          <li>Implementación de APIs y microservicios.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Backoffice - Falabella</h3>
+        <p><strong>Mar 2021 - Nov 2022</strong></p>
+        <ul>
+          <li>Generación y gestión de notas de crédito para clientes y operaciones internas con ERP y Excel</li>
+          <li>Resolución de incidencias y problemas en el área de SERNAC relacionados con el servicio al cliente.</li>
+          <li>Comunicación y coordinación con el área distribuidora para asegurar el cumplimiento de plazos y procesos.</li>
+          <li>Control y verificación de stock con SQL en el sistema para asegurar la disponibilidad de productos en las agencias
+            de bodega utilizando herramientas como CRM.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- (Reemplazar solo el contenido del <section id="proyectos">) -->
+<section id="proyectos">
+    <h2>Proyectos</h2>
+    <div class="carousel-wrapper">
+      <button class="carousel-btn left" onclick="scrollCarousel(-1)">‹</button>
+      <div class="carousel-track" id="carouselTrack">
+        <a href="#" onclick="showModal('Samtech - Área de infraestructura y seguridad', 'Durante mi paso por Samtech S.A., tuve la oportunidad de trabajar en el área de infraestructura y seguridad, donde me enfrenté a desafíos reales que me ayudaron a crecer como desarrollador. Uno de los logros que más valoro fue poder diseñar e implementar soluciones automatizadas con Django, lo que permitió optimizar procesos que antes se hacían de forma manual. También me enfoqué en mejorar el rendimiento de las bases de datos, utilizando SQL Server a un nivel avanzado, lo que tuvo un impacto directo en la rapidez de acceso a la información. Participé activamente en el desarrollo y rediseño del sitio web de la empresa, incorporando funcionalidades dinámicas y mejoras visuales con JavaScript, CSS y Java. Fue un trabajo que me permitió aplicar mis conocimientos técnicos y, al mismo tiempo, entender mejor la importancia de la experiencia del usuario. Todo este trabajo lo realicé en colaboración con un equipo increíble, donde la comunicación y el apoyo mutuo fueron clave para resolver problemas técnicos del día a día. También tuve la oportunidad de implementar APIs y microservicios, algo que me ayudó a comprender mejor cómo se conectan las distintas partes de un sistema en producción.'); return false;">
+            <img src="https://i.imgur.com/QZGARi5.png   " alt="Samtech - Área de infraestructura y seguridad">
+          </a>
+        <a href="#" onclick="showModal('AsaPeace - Centro funerario con atención de IA', 'En ASApeace desarrollé una plataforma web pensada para acompañar a personas en procesos funerarios, integrando inteligencia artificial en casi todos sus módulos. Implementé un asistente virtual con IA para resolver dudas, ofrecer contención emocional y guiar al usuario, además de funcionalidades como videollamadas (Jitsi/WebRTC), agendas en tiempo real, cotizaciones automáticas y soporte personalizado. Utilicé tecnologías como Django, React, PostgreSQL y APIs REST, enfocándome en crear una experiencia fluida, empática y segura para los usuarios.'); return false;">
+          <img src="https://i.imgur.com/uBVu3ga.png" alt="AsaPeace - centro funerario con atención de IA">
+        </a>
+        <a href="#" onclick="showModal('Falabella - Gestión y administración', 'En mi experiencia en Falabella, estuve a cargo de una gestión operativa integral que combinó atención al cliente, control administrativo y análisis de datos. Me desempeñé en la generación y seguimiento de notas de crédito tanto para clientes como para operaciones internas, utilizando herramientas como ERP corporativo y Excel avanzado para asegurar la trazabilidad y eficiencia del proceso. Además, brindé soporte en la resolución de casos SERNAC, actuando como nexo entre el cliente y la empresa para solucionar reclamos de manera efectiva y dentro de los plazos exigidos. Mantuve una comunicación constante con el área distribuidora, coordinando entregas, verificando disponibilidades y asegurando el cumplimiento de los procesos logísticos. También llevé a cabo consultas SQL en sistemas internos para verificar el stock en tiempo real en distintas agencias, apoyándome en herramientas como CRM para garantizar la disponibilidad y trazabilidad de los productos. Esta experiencia fortaleció mi capacidad de análisis, resolución de problemas y trabajo en equipo bajo presión.'); return false;">
+          <img src="https://i.imgur.com/bESPMa2.png" alt="Falabella - Gestión y administración">
+        </a>
+        <a href="#" onclick="showModal('Universidad Católica - Creación de aplicación mobile', 'Durante un curso intensivo en la Universidad Católica, participé en la creación de una aplicación mobile desarrollada en un equipo reducido de 4 personas, donde asumí el rol principal en el área de desarrollo. En un periodo de pocos meses, diseñamos y construimos una app completa utilizando React Native para lograr compatibilidad en Android e iOS, junto con Firebase como backend para autenticación, base de datos en tiempo real y notificaciones push. Implementamos un sistema de gestión de usuarios, panel de administración, geolocalización con Mapbox, y consumo de APIs externas. El proyecto incluyó integración con servicios de terceros y un diseño UI/UX enfocado en la experiencia del usuario utilizando Figma y Tailwind CSS para React Native. Esta experiencia me permitió trabajar bajo presión, aplicar buenas prácticas de arquitectura móvil y consolidar mis habilidades técnicas en un entorno ágil y colaborativo.'); return false;">
+          <img src="https://i.imgur.com/fhKHyyy.png" alt="Universidad Católica - Creación de aplicación mobile">
+        </a>
+        <a href="#" onclick="showModal('Artpage - Página web creada en wordpress', 'Desarrollé una página web enfocada en arte utilizando WordPress como sistema de gestión de contenidos, integrando plugins avanzados como Elementor para el diseño visual personalizado y WooCommerce para la exhibición y venta de obras. Configuré un tema hijo para permitir personalizaciones profundas en PHP y estilos en CSS3, además de integrar funcionalidades específicas mediante JavaScript y shortcodes personalizados. Para asegurar el rendimiento y la seguridad del sitio, implementé caché con WP Super Cache, protección mediante Wordfence, y optimización de imágenes con Smush. También configuré SEO técnico con Yoast SEO, y aseguré la compatibilidad móvil mediante diseño responsivo. Esta experiencia me permitió combinar creatividad con desarrollo técnico, entregando una plataforma robusta, visualmente atractiva y funcional.'); return false;">
+            <img src="https://i.imgur.com/IpvL6bV.png" alt="Artpage - página web creada en wordpress">
+        </a>
+      </div>
+      <button class="carousel-btn right" onclick="scrollCarousel(1)">›</button>
+    </div>
+  
+    <!-- Modal -->
+    <div id="projectModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="modalTitle"></h3>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+  </section>
+  
+  
+  <script>
+  function scrollCarousel(direction) {
+    const track = document.getElementById('carouselTrack');
+    const itemWidth = track.querySelector('a').offsetWidth + 16;
+    track.scrollBy({ left: direction * itemWidth, behavior: 'smooth' });
+  }
+  function showModal(title, description) {
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalDescription').textContent = description;
+    document.getElementById('projectModal').style.display = 'flex';
+  }
+  function closeModal() {
+    document.getElementById('projectModal').style.display = 'none';
+  }
+  </script>
+      
+      
+
+      <section id="contacto">
+        <h2>Contacto</h2>
+        <div style="font-size: 1.1rem; line-height: 1.8;">
+          <p><strong>📧 Correo:</strong> os.ferminvillalobos@gmail.com</p>
+          <p><strong>📞 Teléfono:</strong> +56 9 6683 2560</p>
+          <p><strong>📍 Ubicación:</strong> Recoleta, Santiago de Chile</p>
+          <p><strong>✅ Disponibilidad:</strong> Inmediata</p>
+        </div>
+      </section>
+      
+  </main>
+
+  <footer>
+    <p>© 2025 Oscar Villalobos - Desarrollado con pasión y código limpio.</p>
+  </footer>
+</body>
+</html>
+<script>
+    window.addEventListener('scroll', () => {
+      const navName = document.getElementById('navName');
+      const header = document.querySelector('header');
+  
+      if (window.scrollY > header.offsetHeight - 60) {
+        navName.classList.add('visible');
+      } else {
+        navName.classList.remove('visible');
+      }
+    });
+  </script>
+  
